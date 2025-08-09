@@ -16,6 +16,8 @@ const DATA_NOT_FOUND="Data not found";
 
 const USER_CREATE="User register successfully";
 
+const EMAIL_ALREADY_EXISTS="Email already exist";
+
 module.exports={
 LOGIN_FAIL_MESSAGE,
 USER_NOTFOUND_MESSAGE,
@@ -25,5 +27,6 @@ EMPLOYEE_CREATE,
 EMPLOYEE_UPDATE,
 EMPLOYEE_DELETE,
 DATA_NOT_FOUND,
-USER_CREATE
+USER_CREATE,
+EMAIL_ALREADY_EXISTS
 };

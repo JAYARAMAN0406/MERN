@@ -39,7 +39,7 @@ const EmployeeView = () => {
     console.log('Form submitted with:', data);
 
     try {
-      await axios.delete( 
+   const res=   await axios.delete( 
         `${BASE_URL}${VERSION_URL}${EMPLOYEE_URL}/${id}`,
         {
           headers: {

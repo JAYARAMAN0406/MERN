@@ -6,20 +6,24 @@ import TextFields from '../components/Textfield';
 import Selects from '../components/Select';
 import Buttons from '../components/Buttons';
 import Password from '../components/Password';
-import { BASE_URL, VERSION_URL } from '../utils/ApplicationUrl';
+import { BASE_URL, REGISTER_URL, VERSION_URL } from '../utils/ApplicationUrl';
 import Links from '../components/Links';
 import Toastify from '../components/Toastify';
-import { DOB_REUIRED, EMAIL_REUIRED, FIRST_NAME_REUIRED, GENDER_REQUIRED, LAST_NAME_REUIRED, PASSWORD_CHAR, PASSWORD_REUIRED } from '../utils/Validate';
+import { DOB_REUIRED, EMAIL_REUIRED, FIRST_NAME_REUIRED, GENDER_REQUIRED, LAST_NAME_REUIRED, PASSWORD_CHAR, PASSWORD_REUIRED, PHONE_REUIRED } from '../utils/Validate';
+import { useNavigate } from 'react-router-dom';
 
 const UserForm = () => {
  const { control, handleSubmit, formState: { errors } } = useForm({ mode: 'onTouched' });
 
+const navigate=useNavigate();
+ 
 console.log(errors);
 
  const handleSubmits = async (data) => {
   try {
    const res= await axios.post(`${BASE_URL}${VERSION_URL}${REGISTER_URL}`, data);
     Toastify.success(res.data.message)
+    navigate('/')
   } catch (err) {
     console.error(err);
     Toastify.error(err.response.data.error);

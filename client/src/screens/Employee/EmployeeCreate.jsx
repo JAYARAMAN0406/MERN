@@ -8,6 +8,7 @@ import TextFields from '../../components/Textfield';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Toastify from '../../components/Toastify';
+import { BASE_URL, EMPLOYEE_URL, VERSION_URL } from '../../utils/ApplicationUrl';
 
 function EmployeeCreate() {
 
@@ -23,7 +24,7 @@ function EmployeeCreate() {
 
   try {
 
-    await axios.post(
+ const res=   await axios.post(
       `${BASE_URL}${VERSION_URL}${EMPLOYEE_URL}`,
       data,
       {
